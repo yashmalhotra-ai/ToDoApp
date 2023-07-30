@@ -73,8 +73,9 @@ const Edit = () => {
                 <textarea onChange={onChange} value={todo.desp}  type="text" id="desp" name="desp" className="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
               </div>
             </div>
-            <div className="p-2 w-full">
-              <button onClick={updateTodo} className="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Update Task</button>
+            <div className="p-2 w-full flex flex-wrap">
+              <button onClick={updateTodo} className="flex mx-2 my-2 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Update Task</button>
+              <a href="/"><button  className="flex mx-2 my-2 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Home</button></a>
             </div>
             <div className="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
               <a className="text-purple-400">Made by Yash Malhotra</a>

@@ -10,23 +10,27 @@ export default function Home() {
 
   const AddTodo = () => {
     let todos = localStorage.getItem("todos");
-    if (todos) {
-      let todosJson = JSON.parse(todos);
-      // If title of todo already exsis then 
-      if (todosJson.filter(value => { return value.title == todo.title }).length > 0) {
-        alert("Todo of This Title already exist Please change the title ")
+    if(todo.title.length===0 || todo.desp.length===0){
+      alert("Enter your valid title or Description Please");
+    }
+    else{
+      if (todos) {
+        let todosJson = JSON.parse(todos);
+        // If title of todo already exsis then 
+        if (todosJson.filter(value => { return value.title == todo.title }).length > 0) {
+          alert("Todo of This Title already exist Please change the title ")
+        }
+        else {
+          todosJson.push(todo);
+          localStorage.setItem("todos", JSON.stringify(todosJson));
+          alert("Successfully Added Task in List");
+        }
+  
       }
       else {
-        todosJson.push(todo);
-        localStorage.setItem("todos", JSON.stringify(todosJson));
-        alert("Successfully Added Task in List");
+        localStorage.setItem("todos", JSON.stringify([todo]));
       }
-
     }
-    else {
-      localStorage.setItem("todos", JSON.stringify([todo]));
-    }
-
   }
 
   const onChange = (e) => {
@@ -85,8 +89,9 @@ export default function Home() {
                   <textarea onChange={onChange} value={todo.desp} type="text" id="desp" name="desp" className="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                 </div>
               </div>
-              <div className="p-2 w-full">
-                <button onClick={AddTodo} className="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Add Task</button>
+              <div className="p-2 w-full flex flex-wrap">
+                <button onClick={AddTodo} className="flex mx-2 my-2 flex-wrap text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Add Task</button>
+                <a href="/Todos"><button  className="flex mx-2 my-2 flex-wrap  text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Check Todos</button></a>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
                 <a className="text-purple-400">Made by Yash Malhotra</a>
