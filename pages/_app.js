@@ -11,10 +11,10 @@ export default function App({ Component, pageProps }) {
     <Header/>
 
     <Component {...pageProps} />
-    <div className='container mx-auto min-h-screen '>
+    <div className='container mx-auto min-h-full'>
 
-    <Footer/>
     </div>
+    <Footer/>
     
     </>
   ) 
