@@ -27,6 +27,9 @@ const Todos = () => {
         }, 450);
 
     }
+    const CheckLength=(Todos)=>{
+        
+    }
 
 
 
@@ -70,12 +73,12 @@ const Todos = () => {
         <a href="/"><button  className="flex mx-2 my-2 flex-wrap  text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Back</button></a>
     </div>
 </nav>
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 py-24 mx-auto h-screen">
                 <div className="flex flex-col text-center w-full mb-20">
-                    {Todos.length == 0 && <h1 className="text-2xl font-medium title-font mb-4 text-white tracking-widest">Add Your Task First</h1>}
-                    {Todos.length != 0 && <h1 className="text-2xl font-medium title-font mb-4 text-white tracking-widest">Your Task Today</h1>}
-                    {Todos.length == 0 && <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Add your task from Home Page</p>}
-                    {Todos.length != 0 && <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Make Sure to complete your task ASAP!!</p>}
+                    {(Todos.length == 0 || Todos===null) && <h1 className="text-2xl font-medium title-font mb-4 text-white tracking-widest">Add Your Task First</h1>}
+                    {(Todos.length != 0 || Todos===null) && <h1 className="text-2xl font-medium title-font mb-4 text-white tracking-widest">Your Task Today</h1>}
+                    {(Todos.length == 0 || Todos===null) && <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Add your task from Home Page</p>}
+                    {(Todos.length != 0 || Todos===null) && <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Make Sure to complete your task ASAP!!</p>}
                 </div>
                 <div className="flex flex-wrap -m-4">
                     {Todos.map(item => {
